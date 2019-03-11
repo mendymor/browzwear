@@ -1,0 +1,21 @@
+.map {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 46%;
+}
+.title {
+    display: flex;
+    min-height: 24px;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: solid 1px;
+    padding: 8px 8px 0 8px;
+}
+.frame {
+    display: flex;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 4px;
+}
