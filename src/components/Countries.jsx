@@ -14,13 +14,14 @@ export default class Countries extends Component {
     componentDidUpdate(prevProps) {
         // at first time select the first country
         if (prevProps.countries.length === 0) {
-            this.setState({ selected: this.props.countries[0] });
+            const firstCountry = this.props.countries[0];
+            this.handleClick(firstCountry, false);
         }
     }
 
-    handleClick(country) {
+    handleClick(country, updateCompanies) {
         // update the selected country and call to props func
-        this.setState({ selected: country }, this.props.onClick(country));
+        this.setState({ selected: country }, this.props.onClick(country, updateCompanies));
     }
 
     render() {

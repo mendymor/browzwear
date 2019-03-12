@@ -26,27 +26,17 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        // get the all countries, cities and companies
-        const countries = this.GetCountries();
-        const cities = this.GetCities();
-        const companies = this.GetCompanies();
-
-        // initial the state with default lists
-        this.setState({
-            countries: countries,
-            cities: cities,
-            companies: companies
-        })
+        // initial the state with all countries as default
+        this.setState({ countries: this.GetCountries() })
     }
 
-    handleCountryClick(country) {
+    handleCountryClick(country, updateCompanies) {
         // update the list of cities and companies when a country selected
-        this.setState({
-            cities: this.GetCities(country),
-            companies: [].concat.apply(
-                [], this.GetCities(country).map(c => this.GetCompanies(c))
-            )
-        });
+        this.setState({ cities: this.GetCities(country) }, updateCompanies ?
+            this.setState({
+                companies: [].concat.apply([], this.GetCities(country).map(c => this.GetCompanies(c)))
+            }) : null
+        );
     }
 
     handleCityClick(city) {

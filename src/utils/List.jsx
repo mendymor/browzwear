@@ -9,7 +9,7 @@ export default class List extends Component {
             <div
                 className={item === selected ? 'itemSelected' : 'item'}
                 key={i}
-                onClick={() => this.props.onClick(item)}>
+                onClick={() => this.props.onClick(item, true)}>
                 {item}
             </div>
         );

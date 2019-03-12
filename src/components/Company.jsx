@@ -13,8 +13,9 @@ export default class Company extends Component {
 
     componentDidUpdate(prevProps) {
         // at first time select the first company
-        if (prevProps.companies.length === 0) {
-            this.setState({ selected: this.props.companies[0] });
+        if (this.props.companies !== prevProps.companies && prevProps.companies.length === 0) {
+            const firstCompany = this.props.companies[0];
+            this.handleClick(firstCompany);
         } else if (this.props.companies !== prevProps.companies) {
             this.setState({ selected: null });
         }

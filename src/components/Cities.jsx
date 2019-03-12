@@ -13,8 +13,9 @@ export default class Cities extends Component {
 
     componentDidUpdate(prevProps) {
         // at first time select the first city
-        if (prevProps.cities.length === 0) {
-            this.setState({ selected: this.props.cities[0] });
+        if (this.props.cities !== prevProps.cities && prevProps.cities.length === 0) {
+            const firstCity = this.props.cities[0];
+            this.handleClick(firstCity);
         } else if (this.props.cities !== prevProps.cities) {
             this.setState({ selected: null });
         }
